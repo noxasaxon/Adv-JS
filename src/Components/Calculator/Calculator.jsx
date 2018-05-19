@@ -26,11 +26,12 @@ const media = Object.keys(sizes).reduce((acc, label) => {
 */
 const CalculatorWrapper = styled.div`
    border: 10px solid #005B91;
+   min-height: 330px;
    border-radius: 3px;
    box-shadow: 5px 5px #004771;
    background: #004771;
    display:inline-block;
-   width:80%;
+   width:90%;
    justify-content:center;
    align-items:center;
 
@@ -45,33 +46,38 @@ const CalculatorWrapper = styled.div`
 `
 const FormWrapper = styled.form`
    display:flex;
-   
-   margin: 10px 0px 10px 0px;
-   height: 50px;
-   align-items:center;
+   flex-direction: column;
+   margin: 10px 3px 10px 3px;
+   padding-bottom: 8px;
+   max-height: 200px;
    justify-content:center;
-
+   align-items: center;
+    border-bottom: 5px dotted #005B91;
+    font-weight: bold;
    ${media.tablet`
   
    `}
 `
+
 const ButtonCalculate = styled.input`
    flex-grow:1;
-   margin-left: 10px;
-   margin-right: 10px;
+    margin: 6px;
    padding: 5px;
    background: #0078BF;
    color: white;
    border-radius: 8px;
    font-weight:bold;
-   ${media.tablet`
-      margin: 0px 4px 0px 4px;
-   `}
-   ${media.smallPhone`
-      margin: 0px 2px 0px 2px;
-      padding: 2px;
-      width:70px;
-   `}
+   width: 90%;
+   height: 50px;
+   font-size: 1.2rem;
+//    ${media.tablet`
+//       margin: 0px 4px 0px 4px;
+//    `}
+//    ${media.smallPhone`
+//       margin: 0px 2px 0px 2px;
+//       padding: 2px;
+//       width:70px;
+//    `}
 `
 const ButtonClear = styled.input`
    flex-grow:1;
@@ -82,32 +88,34 @@ const ButtonClear = styled.input`
    border-radius: 8px;
    color:white;
    font-weight:bold;
-   ${media.tablet`
-      margin: 0px 4px 0px 4px;
-   `}
-   ${media.smallPhone`
-      margin: 0px 2px 0px 2px;
-      padding: 2px;
-      width:70px;
+   width: 90%;
+   height: 40px;
+   font-size: 1.15rem;
+//    ${media.tablet`
+//       margin: 0px 4px 0px 4px;
+//    `}
+//    ${media.smallPhone`
+//       margin: 0px 2px 0px 2px;
+//       padding: 2px;
+//       width:70px;
       
-   `}
+//    `}
 `
 const Label = styled.label`
-   flex-grow:1;
-   width: 120px;
+    font-size: 1.2rem;
    color: white;
    font-weight: bold;
-   ${media.tablet`
-      min-width: 85px;
-   `}
-   ${media.smallPhone`
-      font-size: .9em;
-      font-weight:normal;
-   `}
+//    ${media.tablet`
+//       min-width: 85px;
+//    `}
+//    ${media.smallPhone`
+//       font-size: .9em;
+//       font-weight:normal;
+//    `}
 `
 const ResetButton = styled.input`
    height: 40px;
-   width: 170px;
+   width: 270px;
    font-size: 1.2rem;
    margin: 10px;
    padding: 10px;
@@ -119,29 +127,31 @@ const ResetButton = styled.input`
 `
 
 const InputBox = styled.input`
-   flex-grow: 2;
    height: 35px;
    border-radius: 5px;
-   ${media.tablet`
+   margin: 3px;
+   width: 90%;
+//    ${media.tablet`
 
-      width:10vw;
-      min-width:90px;
-   `}
-   ${media.phone`
-      min-width:55px;
-   `}
-   ${media.smallPhone`
-      min-width:30px;
-   `}
+//       width:10vw;
+//       min-width:90px;
+//    `}
+//    ${media.phone`
+//       min-width:55px;
+//    `}
+//    ${media.smallPhone`
+//       min-width:30px;
+//    `}
 `
 const StyledOutput = styled.output`
    color: #02FC7D;
    width: 160px;
    font-weight: bold;
-   ${media.smallPhone`
-      font-weight:normal;
-      font-size: .9em;
-   `}
+   height: 20px;
+//    ${media.smallPhone`
+//       font-weight:normal;
+//       font-size: .9em;
+//    `}
 `
 
 class Calculator extends Component {
@@ -150,10 +160,6 @@ class Calculator extends Component {
       super();
    }
 
-   componentDidMount(){
-
-   }
- 
   // FUNCTIONS
   
   // Miles to Meters
@@ -162,7 +168,7 @@ class Calculator extends Component {
      
       var num = document.getElementById('milestometers').value;
      
-      if (num == "") {
+      if (num === "") {
           document.getElementById('o_milestometers').value = ('Enter a number');
       } else {
           var result = num / 0.00062137;
@@ -179,7 +185,7 @@ class Calculator extends Component {
 
       var num = document.getElementById('meterstomiles').value ;
 
-      if (num == "") {
+      if (num === "") {
           document.getElementById('o_meterstomiles').value = ('Enter a number');
       } else {
           var result = num * 0.00062137;
@@ -193,7 +199,7 @@ class Calculator extends Component {
 
       var num = document.getElementById('milestokilometers').value;
 
-      if (num == "") {
+      if (num === "") {
           document.getElementById('o_milestokilometers').value = ('Enter a number');
       } else {
           var result = num / 0.62137;
@@ -208,7 +214,7 @@ class Calculator extends Component {
 
       var num = document.getElementById('kilometerstomiles').value;
 
-      if (num == "") {
+      if (num === "") {
           document.getElementById('o_kilometerstomiles').value = ('Enter a number');
       } else {
           var result = num * 0.62137;
@@ -234,33 +240,37 @@ class Calculator extends Component {
             <FormWrapper id="frm_milestometers">
                <Label>Miles to Meters</Label>
                <InputBox id="milestometers" type="number" min="1" />
+               <StyledOutput id="o_milestometers" for="milestometers" />
                <ButtonCalculate onClick={this.convertMilesToMeters} type="button" id="btn_milestometers" value="Calculate" />
                <ButtonClear type="reset" value="Clear" />
-               <StyledOutput id="o_milestometers" for="milestometers" />
+
             </FormWrapper>
 
             <FormWrapper id="frm_meterstomiles">
                <Label>Meters to Miles</Label>
                <InputBox id="meterstomiles" type="number" min="1" />
+               <StyledOutput id="o_meterstomiles" for="meterstomiles" />
                <ButtonCalculate onClick={this.convertMetersToMiles} type="button" id="btn_meterstomiles" value="Calculate" />
                <ButtonClear type="reset" value="Clear" />
-               <StyledOutput id="o_meterstomiles" for="meterstomiles" />
+               
             </FormWrapper>
-
+            
             <FormWrapper id="frm_milestokilometers">
                <Label>Miles to Kilometers</Label>
                <InputBox id="milestokilometers" type="number" min="1" />
+               <StyledOutput id="o_milestokilometers" for="milestokilometers" />
                <ButtonCalculate onClick={this.convertMilesToKilometers} type="button" id="btn_milestokilometers" value="Calculate" />
                <ButtonClear type="reset" value="Clear" />
-               <StyledOutput id="o_milestokilometers" for="milestokilometers" />
+               
             </FormWrapper>
-
+            
             <FormWrapper id="frm_kilometerstomiles">
                <Label>Kilometers to Miles</Label>
                <InputBox id="kilometerstomiles" type="number" min="1" />
+               <StyledOutput id="o_kilometerstomiles" for="kilometerstomiles" />
                <ButtonCalculate onClick={this.convertKilometersToMiles} type="button" id="btn_kilometerstomiles" value="Calculate" />
                <ButtonClear type="reset" value="Clear" />
-               <StyledOutput id="o_kilometerstomiles" for="kilometerstomiles" />
+               
             </FormWrapper>
 
             <div>

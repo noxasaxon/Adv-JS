@@ -1,32 +1,51 @@
 html {
   background: rgba(2, 82, 129, 0.808);
+  width: 100%;
 }
+
 .App {
   text-align: center;
-  
+  width:100%;
 }
 
-.App-logo {
+img {
   animation: App-logo-spin infinite 15s linear;
-  height: 150px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 200px;
-  padding: 0px 20px 20px 20px ;
-  color: white;
+  max-height: 115px;
+  height: 23vw;
 }
 
 .App-title {
   font-size: 1.5em;
+  margin-top: 1px;
 }
 
 .App-intro {
   font-size: large;
 }
 
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media (max-width: 474px) {
+  .App-header{
+    font-size: .9rem;
+    height: 28vw;
+    min-height: 110px;
+  }
+  
+}
+@media (max-width: 388px) {
+  .App-header{
+    min-height:90px;
+    /* height:50px; */
+    font-size: .8rem;
+    /* height: 125px; */
+  }
+  img{
+    height:21vw;
+  }
+  
 }
