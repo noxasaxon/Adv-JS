@@ -8,7 +8,7 @@
     "react-scripts": "1.1.4",
     "styled-components": "^3.2.6"
   },
-  "homepage": "https://github.com/noxasaxon/Adv-JS",
+  "homepage": "https://noxasaxon.github.io/Adv-JS",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
