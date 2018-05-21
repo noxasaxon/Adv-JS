@@ -41,7 +41,7 @@ const FooterDiv = styled.div`
   background-color: #222;
   text-align: center;
   padding: 20px;
-  position: fixed;
+  // position: relative;
   left: 0;
   bottom: 0;
   height: 45px;
