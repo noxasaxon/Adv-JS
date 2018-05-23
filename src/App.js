@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import styled from 'styled-components';
 import Calculator from './Components/Calculator/Calculator';
 import { css } from 'styled-components';
-import Footer from 'styled-components';
 
 //media queries function
 const sizes = {
@@ -22,63 +21,49 @@ const media = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
+//css styling using Styled-Components
 const StyledApp = styled.div`
-  width: 100%;
-  height: 100vh;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  align-items: center;
 `;
-
-const StyledFooter = styled.footer``;
-
-//used to track footer for the page
-const PhantomDiv = styled.div`
-  display: block;
-  padding: 20px;
-  height: 60px;
+//footer container
+const StyledFooter = styled.div`
+  width: 100vw;
 `;
-
-//actual style for footer
+//text container in footer
 const FooterDiv = styled.div`
   background-color: #222;
   text-align: center;
-  padding: 20px;
-  // position: relative;
-  left: 0;
-  bottom: 0;
-  height: 45px;
-  width: 100%;
+  padding: 1px;
   font-weight: bold;
   background-color: #222;
   color: white;
 `;
 
 const StyledImg = styled.img`
-  @media (max-width: 700px) {
-  }
+  height: 75px;
+  margin: 0px 3px 0px 3px;
 `;
 
 const HeaderDiv = styled.header`
+  text-align: center;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
   background-color: #222;
-  height: 140px;
-  padding: 0px 20px 20px 20px;
+  height: 70px;
+  width: 100%;
   color: white;
-
-  @media (max-width: 474px) {
-    font-size: 0.9rem;
-    height: 28vw;
-    min-height: 110px;
-  }
-  @media (max-width: 388px) {
-    min-height: 90px;
-    /* height:50px; */
-    font-size: 0.78rem;
-    // height: 30vw;
-    min-height: 90px;
-  }
-
-  @media (max-width: 233px) {
-    font-size: 0.71rem;
-  }
 `;
+
+//App component holds 3 flexbox containers:
+// 1) App header with title and icons
+// 2) Calculator component
+// 3) Footer
 class App extends Component {
   render() {
     return (
@@ -90,10 +75,14 @@ class App extends Component {
             alt="logo"
           />
           <h1 className="App-title">Distance Converter for Athletes</h1>
+          <StyledImg
+            src="https://images.vexels.com/media/users/3/127167/isolated/preview/053ac83df72349720ebf10f2f998d0b7-blue-calculator-icon-svg-by-vexels.png"
+            className="App-logo"
+            alt="logo"
+          />
         </HeaderDiv>
         <Calculator />
         <StyledFooter>
-          <PhantomDiv />
           <FooterDiv>
             <h4>Miles | Meters | Kilometers</h4>
           </FooterDiv>
