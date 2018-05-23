@@ -1,5 +1,5 @@
 html {
-  background: rgba(2, 82, 129, 0.808);
+  /* background: rgba(2, 82, 129, 0.808); */
   height: 100vh;
   margin: 0px;
   padding: 0px;
@@ -13,7 +13,9 @@ body{
   margin: 0px;
   height: 100%;
   width: 100%;
+  background-color: #357aa1;
 }
+
 .App {
   margin: 0px;
   text-align: center;
